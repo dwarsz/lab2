@@ -38,13 +38,23 @@ public class Deck {
 	}
 	
 	
-	//	TODO: Add a draw() method that will take a card from the deck and
-	//			return it to the caller
+	
 	public Card draw() throws Exception {
 		if(cards.size() == 0) {
 			throw new Exception("Empty Deck");
 		}
 		return cards.remove(0);
 		
+	}
+	public int getRemaining(Object eNum){
+		int counter=0;
+		Object type = null;
+		for(Card c: cards){
+			type = ((eNum instanceof eSuit)? c.getSuit(): c.getRank());
+			if(type==eNum) {
+				++counter;
+			}
+		}
+	return counter;
 	}
 }
